@@ -1,0 +1,35 @@
+item {
+    name: "fish",
+    id: 1,
+    display_name: "fish"
+}
+item {
+    name: "jellyfish",
+    id: 2,
+    display_name: "jellyfish"
+}
+item {
+    name: "penguin",
+    id: 3,
+    display_name: "penguin"
+}
+item {
+    name: "puffin",
+    id: 4,
+    display_name: "puffin"
+}
+item {
+    name: "shark",
+    id: 5,
+    display_name: "shark"
+}
+item {
+    name: "starfish",
+    id: 6,
+    display_name: "starfish"
+}
+item {
+    name: "stingray",
+    id: 7,
+    display_name: "stingray"
+}

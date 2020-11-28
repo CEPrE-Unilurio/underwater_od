@@ -1,0 +1,4 @@
+run 
+$ docker build -t [IMAGE_NAME] .
+
+to build a docker image

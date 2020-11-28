@@ -12,7 +12,6 @@ SHELL ["conda", "run", "-n", "tf-gpu", "/bin/bash", "-c"]
 RUN echo "Make sure tensorflow is installed:"
 RUN python -c "import tensorflow"
 
-# The code to run when container is started:
 COPY ./tf_od_api ./tf_od_api
 
 ENV PYTHONPATH "/opt/tf_od_api/models/research:/opt/tf_od_api/models"

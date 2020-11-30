@@ -14,6 +14,7 @@ RUN python -c "import tensorflow"
 
 COPY ./tf_od_api ./tf_od_api
 COPY ./cocoapi ./cocoapi
+COPY ./entry_script.sh ./entry_script.sh
 
 ENV PYTHONPATH "/opt/tf_od_api/models/research:/opt/tf_od_api/models"
 

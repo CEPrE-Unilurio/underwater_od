@@ -1,1 +1,0 @@
-python model_main_tf2.py --model_dir=models/ssd_mobilenet_v2_fpnlite_640x640 --pipeline_config_path=models/ssd_mobilenet_v2_fpnlite_640x640/pipeline.config

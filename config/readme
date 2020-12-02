@@ -1,8 +1,0 @@
-To build the docker image
-inside the config folder
-
-$ docker build -t coral_ai .
-
-To train inside the docker container
-$ cd /opt/tf_od_api/workspace/train_coral_ai
-$ cd python model_main_tf2.py --model_dir=models/ssd_mobilenet_v2_fpnlite_640x640 --pipeline_config_path=models/ssd_mobilenet_v2_fpnlite_640x640/pipeline.config

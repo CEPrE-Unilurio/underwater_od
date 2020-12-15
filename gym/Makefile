@@ -21,6 +21,8 @@ eval:
 
 monitor:
 	tensorboard --logdir=tf_od_api/workspace/train_core/models/ssd_mobilenet_v2_fpnlite/ --bind_all
+build:
+	@bash build.sh
 clean: 
 	docker image prune
 	docker container prune

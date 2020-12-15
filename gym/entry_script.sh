@@ -1,1 +1,1 @@
-bash /home/train.sh
+bash /home/core.sh

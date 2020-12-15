@@ -20,11 +20,13 @@ def main(argv):
     
     print("tf version {}".format(tf.__version__))
 
-    converter = tf.lite.TFLiteConverter.from_saved_model(saved_model_dir)
+    converter = tf.compat.v1.lite.TFLiteConverter.from_saved_model(saved_model_dir)
     tflite_model = converter.convert()
 
     with open('{}.tflite'.format(tflite_model_dir), 'wb') as f:
         f.write(tflite_model)
+
+    print("SavedModel converted into a TensorFlow Lite model")
 
 if __name__ == "__main__":
    main(sys.argv[1:])

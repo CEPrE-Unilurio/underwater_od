@@ -18,15 +18,17 @@ def main(argv):
         elif opt in ("-o", "--tflite_model_dir"):
             tflite_model_dir = arg
     
-    print("tf version {}".format(tf.__version__))
 
-    converter = tf.compat.v1.lite.TFLiteConverter.from_saved_model(saved_model_dir)
+    converter = tf.lite.TFLiteConverter.from_saved_model(saved_model_dir)
+
+    #converter.optimizations = [tf.lite.Optimize.DEFAULT]
+    #converter.experimental_new_converter = True
+    converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]
     tflite_model = converter.convert()
 
-    with open('{}.tflite'.format(tflite_model_dir), 'wb') as f:
+    with open('{}/model.tflite'.format(tflite_model_dir), 'wb') as f:
         f.write(tflite_model)
-
-    print("SavedModel converted into a TensorFlow Lite model")
+        print("SavedModel converted into a TensorFlow Lite model")
 
 if __name__ == "__main__":
    main(sys.argv[1:])

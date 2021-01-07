@@ -1,5 +1,4 @@
-
-config: 
+setup: 
 	@echo "building docker image named coral-ai"
 	docker build -t coral-ai .
 	@echo "registring the docker image named coral-ai"

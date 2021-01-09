@@ -1,29 +1,27 @@
-FROM continuumio/anaconda3
+FROM continuumio/miniconda
 
 WORKDIR /opt
 
-# Create the environment:
-RUN conda create -n tf-gpu tensorflow-gpu
+SHELL ["conda", "run", "-n", "base", "/bin/bash", "-c"]
 
-# Make RUN commands use the new environment:
-SHELL ["conda", "run", "-n", "tf-gpu", "/bin/bash", "-c"]
+RUN conda install python=3.8 
+RUN conda install cudatoolkit=11.0
+RUN conda install pip
+RUN pip install tensorflow_gpu==2.4
 
-# Make sure the environment is activated:
+COPY . .
+
 RUN echo "Make sure tensorflow is installed:"
 RUN python -c "import tensorflow"
 
-COPY ./tf_od_api ./tf_od_api
-COPY ./cocoapi ./cocoapi
-COPY *.sh ./
 
 ENV PYTHONPATH "/opt/tf_od_api/models/research:/opt/tf_od_api/models"
-
-RUN apt-get update &&  apt-get install apt-utils -y && apt-get install vim -y && apt-get install build-essential -y && apt-get install tree -y
-RUN python -m pip install PyYAML
 RUN python -m pip install lvis
+RUN python -m pip install PyYAML
 RUN conda install -c anaconda absl-py
-RUN cd /opt/tf_od_api/models/research && python -m pip install . 
-RUN cd /opt/cocoapi/PythonAPI && make && python setup.py build_ext install && cp -r pycocotools /opt/tf_od_api/models/research/
-RUN cd /opt/tf_od_api/models/research && python object_detection/builders/model_builder_tf2_test.py
+RUN apt-get update &&  apt-get install apt-utils -y && apt-get install vim -y && apt-get install build-essential -y && apt-get install tree -y
+RUN cd cocoapi/PythonAPI && make && python setup.py build_ext install && cp -r pycocotools /opt/tf_od_api/models/research/
+RUN cd tf_od_api/models/research && python -m pip install . 
+RUN cd tf_od_api/models/research && python object_detection/builders/model_builder_tf2_test.py
 
-ENTRYPOINT ["conda", "run", "-n", "tf-gpu", "bash", "entry_script.sh"]
+ENTRYPOINT ["bash"]

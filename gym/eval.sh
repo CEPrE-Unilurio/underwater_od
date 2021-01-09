@@ -1,2 +1,12 @@
-chmod 777 -Rf tf_od_api/workspace/train_core/
-nvidia-docker run -it -v $(pwd)/tf_od_api/workspace/train_core:/home registry.fsoc.hpi.uni-potsdam.de/coral-ai > tf_od_api/workspace/train_core/eval.log
+cd /home
+
+chmod 777 -Rf models/$1
+
+rm models/$1/ckpt*
+rm -rf models/$1/eval
+
+
+python model_main_tf2.py \
+--model_dir=models/$1 \
+--pipeline_config_path=models/$1/pipeline.config \
+--checkpoint_dir=models/$1

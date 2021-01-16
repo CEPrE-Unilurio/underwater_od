@@ -13,6 +13,8 @@ export_to_tflite_graph:
 eval: run_docker_eval.sh
 	@echo "evaluating ... grab a cup of coffee and wait ..."
 	bash run_docker_eval.sh $(model_dir_name)
+run_docker:
+	bash run_docker.bash
 monitor:
 	tensorboard --logdir=tf_od_api/workspace/train_core/models/ssd_mobilenet_v2_fpnlite/ --bind_all
 convert_to_tflite:

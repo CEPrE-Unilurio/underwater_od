@@ -1,0 +1,18 @@
+### PROBLEM: ValueError: Duplicate plugins for name projector terminate called without an active exception
+
+
+### Suggestion: Fix conflicting installations
+
+Conflicting package installations found. Depending on the order of
+installations and uninstallations, behavior may be undefined. Please
+uninstall ALL versions of TensorFlow and TensorBoard, then reinstall
+ONLY the desired version of TensorFlow, which will transitively pull
+in the proper version of TensorBoard. (If you use TensorBoard without
+TensorFlow, just reinstall the appropriate version of TensorBoard
+directly.)
+
+Namely:
+
+	pip uninstall tb-nightly tensorboard tensorflow-estimator tensorflow-gpu tf-estimator-nightly
+	pip install tensorflow  # or `tensorflow-gpu`, or `tf-nightly`, ...
+

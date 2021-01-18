@@ -6,7 +6,7 @@ setup:
 	docker push registry.fsoc.hpi.uni-potsdam.de/ai4coral
 train: run_docker_train.sh
 	@echo "training ...  grab a cup of coffee and wait ..."
-	bash run_docker_train.sh $(model_dir_name)
+	bash run_docker_train.sh $(model_name)
 export_to_tflite_graph:
 	@echo 'Exporting TF2 detection SavedModel to TensorFlow Lite Graph'
 	@bash export_tflite_graph.sh $(pipeline_config_path) $(trained_checkpoint_dir) $(output_directory)
@@ -15,6 +15,8 @@ eval: run_docker_eval.sh
 	bash run_docker_eval.sh $(model_dir_name)
 run_docker:
 	bash run_docker.bash
+download_models:
+	bash download_models.bash
 monitor:
 	tensorboard --logdir=tf_od_api/workspace/train_core/models/ssd_mobilenet_v2_fpnlite/ --bind_all
 convert_to_tflite:

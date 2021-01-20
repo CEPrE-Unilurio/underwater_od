@@ -1,8 +1,6 @@
 cd /home
 
-chmod 777 -Rf models/$1
 
-rm models/$1/ckpt*
 rm -rf models/$1/eval
 
 

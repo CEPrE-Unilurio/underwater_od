@@ -1,2 +1,2 @@
-python convert_to_tflite.py --saved_model_dir $1 --output_file $2
+python convert_to_tflite.py --saved_model_dir ai4coral/exported-models/$1/saved_model --output_file ai4ccoral.tflite
 

@@ -17,7 +17,7 @@ this code will save the pre-trained model inside``` underwater_od/ai4coral/pre-t
 ``` make model_name=ssd_mobilenet_v2_fpnlite train ```
 
 # How to evaluate a model
-``` make model_name=ssd_mobilenet_v2_fpnlite train ``` \
+``` make model_name=ssd_mobilenet_v2_fpnlite eval ``` \
 you should run this in parallel to model training
 
 # How to monitor model training

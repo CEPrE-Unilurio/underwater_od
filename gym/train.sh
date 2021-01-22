@@ -1,6 +1,5 @@
 cd /home
 
-chmod 777 -Rf models/$1
 rm -f models/$1/ckpt*
 rm -rf models/$1/train
 

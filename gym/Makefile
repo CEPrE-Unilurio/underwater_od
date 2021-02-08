@@ -10,9 +10,6 @@ train: run_docker_train.sh
 export_to_tflite_graph:
 	@echo 'Exporting TF2 detection SavedModel to TensorFlow Lite Graph'
 	@bash export_tflite_graph.sh $(model_name)
-eval: run_docker_eval.sh
-	@echo "evaluating ... grab a cup of coffee and wait ..."
-	bash run_docker_eval.sh $(model_name)
 run_docker:
 	bash run_docker.bash
 download_models:

@@ -16,13 +16,8 @@ this code will save the pre-trained model inside``` underwater_od/ai4coral/pre-t
 # How to train a model
 ``` make model_name=ssd_mobilenet_v2_fpnlite train ```
 
-# How to evaluate a model
-``` make model_name=ssd_mobilenet_v2_fpnlite eval ``` \
-you should run this in parallel to model training
-
 # How to monitor model training
 ``` make model_name=ssd_mobilenet_v2_fpnlite monitor ``` \
-you should run this in parallel to model training and model evaluation
 
 # How to export trained model
 ``` make model_name=ssd_mobilenet_v2_fpnlite export_to_tflite_graph ```

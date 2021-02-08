@@ -2,8 +2,10 @@
 *.tflite
 *.tfrecord
 *.pb
+*.out
 events*
 ckpt*
+checkpoint
 # Folders TF-specific
 checkpoint/
 saved_model/

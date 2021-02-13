@@ -3,7 +3,7 @@
 # Copyright 2021  CEPrE-Unilurio 
 
 # $1 - is model's name
-#SBATCH --gres=gpu:k80:4  -p gpu
+#SBATCH --gres=gpu:k80:4  -p gpu -J ai4coral
 
 for model in $(ls ai4coral/models)
 do

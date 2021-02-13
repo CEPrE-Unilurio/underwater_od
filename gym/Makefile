@@ -1,3 +1,7 @@
+#default values 
+
+model_name=ssd_mobilenet_v2_fpnlite
+
 setup: 
 	@echo "building docker image named ai4coral"
 	docker build -t ai4coral:latest .
@@ -10,7 +14,6 @@ train: run_docker_train.sh
 strain: run_docker_train.sh
 	@echo "training with gpu...  grab a cup of coffee and wait ..."
 	sbatch run_docker_train.sh $(model_name)
-
 export_to_tflite_graph:
 	@echo 'Exporting TF2 detection SavedModel to TensorFlow Lite Graph'
 	@bash export_tflite_graph.sh $(model_name)

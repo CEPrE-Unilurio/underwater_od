@@ -1,4 +1,5 @@
 # Binary/exported files
+*.nfs
 *.tflite
 *.tfrecord
 *.pb

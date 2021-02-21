@@ -13,6 +13,12 @@
 you should do this if and only if you do not have the pre-trained model already in you machine \
 this code will save the pre-trained model inside``` underwater_od/ai4coral/pre-trained-models/ ```
 
+## How to evaluate  a model (just for testing)
+``` make model_name=ssd_mobilenet_v2_fpnlite eval ```
+
+## How to evaluate a model using using slurm
+``` make model_name=ssd_mobilenet_v2_fpnlite seval ```
+
 ## How to train a model (just for testing) 
 ``` make model_name=ssd_mobilenet_v2_fpnlite train ```
 
